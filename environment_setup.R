@@ -6,7 +6,8 @@ setup_environment <- function(baseconfig) {
   data_dir <- file.path(base_dir, "database")
   output_dir <- file.path(base_dir, "output")
   logs_dir <- file.path(base_dir, "logs")
-  db_path <- file.path(data_dir, "userlist.sqlite")
+  db_path <- file.path(data_dir, "users.sqlite")
+  db_path2 <- file.path(data_dir, "audit_logs.sqlite")
   
   # 创建必要目录
   required_dirs <- c(data_dir, output_dir, logs_dir)
@@ -35,6 +36,7 @@ setup_environment <- function(baseconfig) {
     data_dir = data_dir,
     output_dir = output_dir,
     logs_dir = logs_dir,
-    db_path = db_path
+    db_path = db_path,
+    db_path2=db_path2
   )
 }

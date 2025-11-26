@@ -10,13 +10,14 @@ initialize_project <- function() {
   env_config <- setup_environment(config)
   message("✓ 环境路径设置完成")
   
-  # 3. 连接数据库
-  db_conn <- setup_database(env_config)
-  message("✓ 数据库连接建立")
-  
-  # 4. 安装必要包
+  # 3. 安装必要包
   install_required_packages()
   message("✓ 必要包检查完成")
+  
+  # 4. 连接数据库
+  db_conn <- setup_database(env_config)
+  db_conn2 <- setup_database(env_config,2)
+  message("✓ 数据库连接建立")
   
   # 5. 验证环境
   validation_result <- validate_environment(env_config, db_conn)

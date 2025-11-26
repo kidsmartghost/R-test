@@ -5,7 +5,7 @@ final_app <- function() {
   # ---------- UI ----------
   ui <- fluidPage(
     useShinyjs(),
-    titlePanel("sign in"),
+    titlePanel("YT test"),
     div(id = "login_register_ui",
         tabsetPanel(id = "auth_tabs", type = "tabs",
                     tabPanel("登录", value = "login",
@@ -134,7 +134,6 @@ final_app <- function() {
     # 注册提交
     observeEvent(input$reg_submit, {
       req(input$reg_username, input$reg_email, input$reg_pw, input$reg_pw2)
-      removeModal()
       if (input$reg_pw != input$reg_pw2) {
         showNotification("两次密码不一致", type = "error"); return()
       }
@@ -144,6 +143,7 @@ final_app <- function() {
       } else {
         
         message(sprintf("注册提交成功"))
+        showNotification("注册提交成功")
 
       }
     })
